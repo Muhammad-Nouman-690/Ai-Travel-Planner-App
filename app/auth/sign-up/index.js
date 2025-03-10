@@ -31,6 +31,7 @@ export default function SignUp() {
         // Signed up 
         const user = userCredential.user;
         console.log(user);
+        ToastAndroid.show("User Successfully Created", ToastAndroid.TOP)
 
       })
       .catch((error) => {

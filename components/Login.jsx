@@ -2,19 +2,20 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Colors } from '@/app-example/constants/Colors'
 import { useRouter } from 'expo-router'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Login() {
     const router = useRouter();
     
     return (
-        <View>
+        <SafeAreaView>
             <Image source={require('../assets/images/login.jpeg')}
                 style={{
                     width: '100%',
                     height: 520
                 }}
             />
-            <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <Text style={{
                     fontSize: 35,
                     fontFamily: 'outfit-bold',
@@ -27,7 +28,8 @@ export default function Login() {
                     fontSize: 17,
                     textAlign: 'center',
                     Color: Colors.GRAY,
-                    marginTop: 20,
+                    marginTop: 25,
+                    marginBottom: 25
                 }}>Discover your next adventure effortlessly. Personalized itineraries at your fingertips. Travel smarter with AI-driven insights.</Text>
                 <TouchableOpacity style={styles.button}
                 onPress={()=>router.push('auth/sign-in')}
@@ -41,8 +43,8 @@ export default function Login() {
                         Get Started
                     </Text>
                 </TouchableOpacity>
-            </View>
-        </View>
+            </SafeAreaView>
+        </SafeAreaView>
     )
 }
 
