@@ -32,7 +32,7 @@ export default function SignUp() {
         const user = userCredential.user;
         console.log(user);
         ToastAndroid.show("User Successfully Created", ToastAndroid.TOP)
-
+        router.replace('auth/sign-in');
       })
       .catch((error) => {
         const errorCode = error.code;

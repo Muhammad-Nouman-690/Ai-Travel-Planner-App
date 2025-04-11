@@ -31,6 +31,7 @@ export default function SignIn() {
         const user = userCredential.user;
         console.log(user);
         ToastAndroid.show("User Successfully Login", ToastAndroid.TOP)
+        router.replace('(tabs)/discover');
       })
       .catch((error) => {
         const errorCode = error.code;

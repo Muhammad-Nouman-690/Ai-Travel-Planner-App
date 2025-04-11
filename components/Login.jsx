@@ -20,7 +20,7 @@ export default function Login() {
                     fontSize: 35,
                     fontFamily: 'outfit-bold',
                     textAlign: 'center',
-                    marginTop: 10,
+                    marginTop: 1,
 
                 }}>AI Travel Planner</Text>
                 <Text style={{
@@ -28,8 +28,8 @@ export default function Login() {
                     fontSize: 17,
                     textAlign: 'center',
                     Color: Colors.GRAY,
-                    marginTop: 25,
-                    marginBottom: 25
+                    marginTop: 1,
+                    marginBottom: 1
                 }}>Discover your next adventure effortlessly. Personalized itineraries at your fingertips. Travel smarter with AI-driven insights.</Text>
                 <TouchableOpacity style={styles.button}
                 onPress={()=>router.push('auth/sign-in')}
