@@ -2,6 +2,7 @@ import { View } from "react-native";
 import Login from './../components/Login'
 import { auth } from './../config/FirebaseConfig'
 import { Redirect } from "expo-router";
+import 'react-native-get-random-values';
 
 export default function Index() {
 
