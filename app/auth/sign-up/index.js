@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ToastAndroid } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation, useRouter } from 'expo-router'
-import { Colors } from './../../../app-example/constants/Colors'
+import { Colors } from '../../../constants/Colors'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { auth } from '../../../config/FirebaseConfig';
 import { createUserWithEmailAndPassword } from 'firebase/auth';

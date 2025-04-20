@@ -3,7 +3,10 @@ import React from 'react'
 
 export default function OptionCard({option}) {
   return (
-    <View>
+    <View style={{
+      padding:15,
+      
+    }}>
       <Text>OptionCard</Text>
     </View>
   )
