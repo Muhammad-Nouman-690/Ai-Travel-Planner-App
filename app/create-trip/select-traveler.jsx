@@ -1,12 +1,16 @@
-import { View, Text, FlatList } from 'react-native'
-import React, { useEffect } from 'react'
-import { useNavigation } from 'expo-router'
+import { View, Text, FlatList, TouchableOpacity } from 'react-native'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, useNavigation } from 'expo-router'
 import { Colors } from '../../constants/Colors';
 import { SelectTravelesList } from '../../constants/Option'
 import OptionCard from '../../components/CreateTrip/OptionCard';
+import { CreateTripContext } from '../../context/CreateTripContext';
 
 export default function SelectTraveler() {
     const navigation = useNavigation();
+    const [selectedTraveler, setSelectedTraveler] = useState();
+    const { tripData, setTripData } = useContext(CreateTripContext);
+
     useEffect(() => {
         navigation.setOptions({
             headerShown: true,
@@ -14,6 +18,14 @@ export default function SelectTraveler() {
             headerTitle: ''
         })
     }, [])
+
+    useEffect(() => {
+        setTripData({
+            ...tripData,
+            traveler: selectedTraveler
+        })
+    }, [selectedTraveler])
+
     return (
         <View style={{
             padding: 25,
@@ -39,15 +51,40 @@ export default function SelectTraveler() {
                     Choose your traveles
                 </Text>
                 <FlatList
-                data={SelectTravelesList}
-                renderItem={(item,index)=>(
-                    <View>
-                        <OptionCard option={item}/>
-                    </View>
-                )}
+                    data={SelectTravelesList}
+                    renderItem={({ item, index }) => (
+                        <TouchableOpacity
+                            onPress={() => setSelectedTraveler(item)}
+                            style={{
+                                marginVertical: 10,
+                            }}>
+                            <OptionCard option={item} selectedOption={selectedTraveler} />
+                        </TouchableOpacity>
+                    )}
                 />
             </View>
-
+            <TouchableOpacity style={{
+                padding: 15,
+                backgroundColor: Colors.PRIMARY,
+                borderRadius: 15,
+                marginTop: 20
+            }} >
+                <Link href={'create-trip/select-dates'}
+                    style={{
+                        width: '100%',
+                        textAlign: 'center'
+                    }}
+                >
+                    <Text style={{
+                        textAlign: 'center',
+                        color: Colors.WHITE,
+                        fontFamily: 'outfit-medium',
+                        fontSize: 20
+                    }}>
+                        Continue
+                    </Text>
+                </Link>
+            </TouchableOpacity>
         </View>
     )
 }
